@@ -56,7 +56,7 @@ app.get('*', async (req, res) => {
     }
     let loadableState = {};
 
-    setTimeout(function () {
+    setTimeout( () => {
         //do something once
         const modules = [];
         const extractAssets = (assets, chunks, type) => Object.keys(assets)
