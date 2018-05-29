@@ -56,7 +56,8 @@ app.get('*', async (req, res) => {
     }
     let loadableState = {};
 
-    store.runSaga(sagas).done.then(() => {
+    setTimeout(function () {
+        //do something once
         const modules = [];
         const extractAssets = (assets, chunks, type) => Object.keys(assets)
             .filter(asset => {
@@ -80,7 +81,10 @@ app.get('*', async (req, res) => {
             res.write(renderFooter(extraChunks, loadableState, preloadedState));
             return res.send();
         });
-    });
+    }, 1000);
+    // store.runSaga(sagas).done.then(() => {
+    //
+    // });
 
     // Trigger sagas for component to run
     // https://github.com/yelouafi/redux-saga/issues/255#issuecomment-210275959
